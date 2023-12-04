@@ -1,0 +1,75 @@
+# Custom format for the prompt
+format = "$nodejs$python$username$directory$git_branch$git_status\n$character"
+right_format = '$cmd_duration\[$time\]'
+
+[username]
+show_always = true
+style_user = "bright-red"
+
+[character]
+success_symbol = "[\\$](bold green)"
+error_symbol = "[\\$](bold red)"
+vimcmd_symbol = "[\\$](bold yellow)"
+
+[git_branch]
+symbol = "🌱 "
+style = "bold green"
+
+[directory]
+style = "bold cyan"
+format = "[$path]($style)[$delimiter]($style) "
+
+[git_status]
+conflicted = " ⚔️($count)"
+ahead = " ↑($count)"
+behind = " ↓($count)"
+diverged = " ↕️($count)"
+untracked = " U($count)"
+stashed = "<*($count)>"
+modified = "±($count)"
+staged = " ✓($count)"
+deleted = " ✘($count)"
+renamed = " »($count)"
+up_to_date = ""
+style = "bold yellow"
+format = "[$symbol$state$all_status$ahead_behind]($style) "
+
+[time]
+disabled = false
+format = "[$time]($style)"
+style = "grey"
+
+[python]
+style = "bold yellow"
+format = '[(\($virtualenv\) )]($style)'
+detect_extensions = [ "py" ]
+python_binary = ['./venv/bin/python', 'python', 'python3', 'python2']
+
+[nodejs]
+style = "bold green"
+symbol = " "
+format = '[$symbol($version )]($style)'
+detect_extensions = ['js', 'mjs', 'cjs', 'ts', 'mts', 'cts']
+detect_files = [ "package.json", ".node-version", ".nvmrc" ]
+detect_folders = [ "node_modules" ]
+disabled = false
+not_capable_style = "bold red"
+
+# [docker_context]
+# symbol = "🐳 "
+# style = "bold blue"
+# format = '[(\($symbol$context)\) ]($style)'
+# detect_files = [ "docker-compose.yml", "docker-compose.yaml", "Dockerfile" ]
+
+# [dotnet]
+# symbol = ".NET "
+# style = "#ba71d5"
+# format = '[(\($symbol$version\)) ]($style)'
+# detect_extensions = [ "csproj", "fsproj", "props", "targets", "sln" ]
+# detect_files = ['global.json', 'project.json', 'Directory.Build.props', 'Directory.Build.targets', 'Packages.props']
+
+[cmd_duration]
+min_time = 1
+format = "[$duration]($style) "
+style = "bold black"
+disabled = false
