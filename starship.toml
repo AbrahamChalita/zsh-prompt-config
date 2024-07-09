@@ -1,12 +1,19 @@
 # Custom format for the prompt
-format = "$nodejs$python$username$directory$git_branch$git_status\n$character"
+format = "$python$username$directory$git_branch$git_status\n$character"
+# format = "$nodejs$python$username$directory$git_branch$git_status\n$character"
 right_format = '$cmd_duration\[$time\]'
+
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+add_newline = false
 
 [username]
 show_always = true
-style_user = "bright-red"
+style_user = "bold red"
 
 [character]
+disabled = false
+format = "$symbol "
 success_symbol = "[\\$](bold green)"
 error_symbol = "[\\$](bold red)"
 vimcmd_symbol = "[\\$](bold yellow)"
@@ -16,7 +23,7 @@ symbol = "🌱 "
 style = "bold green"
 
 [directory]
-style = "bold cyan"
+style = "bold #05eff7"
 format = "[$path]($style)[$delimiter]($style) "
 
 [git_status]
@@ -41,19 +48,19 @@ style = "grey"
 
 [python]
 style = "bold yellow"
-format = '[(\($virtualenv\) )]($style)'
+format = '($style)'
 detect_extensions = [ "py" ]
 python_binary = ['./venv/bin/python', 'python', 'python3', 'python2']
 
-[nodejs]
-style = "bold green"
-symbol = " "
-format = '[$symbol($version )]($style)'
-detect_extensions = ['js', 'mjs', 'cjs', 'ts', 'mts', 'cts']
-detect_files = [ "package.json", ".node-version", ".nvmrc" ]
-detect_folders = [ "node_modules" ]
-disabled = false
-not_capable_style = "bold red"
+# [nodejs]
+# style = "bold green"
+# symbol = " "
+# format = '[node ($version )]($style)'
+# detect_extensions = ['js', 'mjs', 'cjs', 'ts', 'mts', 'cts']
+# detect_files = [ "package.json", ".node-version", ".nvmrc" ]
+# detect_folders = [ "node_modules" ]
+# disabled = false
+# not_capable_style = "bold red"
 
 # [docker_context]
 # symbol = "🐳 "
